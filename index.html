@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bar/line</title>
+</head>
+<body>
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+
+var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    //type: 'line',
+
+  type: 'line',
+  
+
+
+    // The data for our dataset
+    data: {
+        labels: ["2015", "2016", "2017", "2018", "2019", "2020"],
+        datasets: [{
+            label: "Cantidad de MiPyMES Millones",
+            backgroundColor: 'rgb(68, 160, 227,.5)',
+            borderColor: 'rgb(68, 160, 227,1)',
+            data: [4.048, 4.315, 4.205, 4.169, 4.092, 4.857,],
+            pointStyle: 'line',
+        },
+        {
+            label: "PIB Millones Mxn",
+            backgroundColor: 'rgb(157, 182, 178, .5)',
+            borderColor: 'rgb(157, 182, 178, 1)',
+            data: [17.292, 17.747, 18.122, 18.520, 18.509, 16.984],
+            type: 'bar',
+            pointStyle: 'rect',
+        }]
+    },
+  
+  options: {
+    responsive: true,
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Año',
+          color: '#707070',
+          font: {
+            family: 'Oxygen',
+            size: 20,
+            weight: 'normal',
+            lineHeight: 1.2,
+          },
+          padding: {top: 20, left: 0, right: 0, bottom: 0}
+        }
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Cantidad de MiPyMES vs PIB',
+          color: '#707070',
+          font: {
+            family: 'Oxygen',
+            size: 20,
+            style: 'normal',
+            lineHeight: 1.2
+          },
+          padding: {top: 30, left: 0, right: 0, bottom: 0}
+        }
+      }
+    },
+    plugins: {
+      filler: {
+        propagate: false,
+      },
+      title: {
+        display: true,
+        text: (ctx) => 'Cantidad de trabajadores en las MiPyMES 2015 - 2020',
+        font: {
+            family: 'Playfair Display SC',
+            size: 25,
+            weight: 'normal',
+            lineHeight: 2,
+          },
+          responsive: true,    
+      },
+    },
+    pointBackgroundColor: '#fff',
+    radius: 10,
+    interaction: {
+      intersect: false,
+    }
+  },
+
+  
+
+
+    });
+
+</script>
+
+
+<script>
+    // === include 'setup' then 'config' above ===
+  
+    var myChart = new Chart(
+      document.getElementById('myChart')
+    );
+  </script>
+
+
+
+      <!-- D3 --> 
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<!-- JS -->
+<script src="/js/main.js"></script>
+
+<!-- JQuery first, then Popper.js, then Bootstrap JS -->
+<script src="bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>
+<script src="bootstrap-4.4.1-dist/js/popper.min.js"></script>
+<script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+    
+</body>
+</html>
